@@ -32,7 +32,8 @@ const main = async () => {
     const { data } = await axios.get(`${API_URL}/nft/items?chain_id=${chainId}&page_no=1&page_size=${limit}&contract=${nonCheckSummedAddress}&sort_type=1`)
     fs.writeFile(`../data/pancakenft-${new Date().toISOString()}.json`, JSON.stringify(data), (err) => {
         if (err)  return console.log(err)
-
+        // TODO: You probably want to include a link to the url which I build with
+        // {WEB_URL}/{nonCheckSummedAddress}/{tokenId}/{orderId} for easy access :)
         console.log("The file was saved!")
     })
     // TODO: Fetch transactions based on block number and query each
